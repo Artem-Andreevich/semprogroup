@@ -1,0 +1,5 @@
+mixin svg(id, w='40', h=`${w}`)
+    if id
+        svg&attributes(attributes)(width=`${w}px` height=`${h}px`)
+            use(xlink:href='#' + id)
+//- +svg('location', '60', '60')(class='icon')

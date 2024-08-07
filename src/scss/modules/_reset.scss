@@ -1,0 +1,137 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+html,
+body,
+div,
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+dfn,
+del,
+p,
+blockquote,
+fieldset,
+input,
+textarea,
+select,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section,
+button,
+canvas,
+video {
+    margin: 0;
+    padding: 0;
+}
+a {
+	cursor: pointer;
+	color: inherit;
+}
+
+a,
+a:hover,
+a:focus {
+	text-decoration: none;
+	outline: 0;
+
+}
+
+button,
+button:hover,
+button:focus,
+.btn:focus,
+.btn:active:focus {
+  outline: 0;
+}
+button {
+  border: none;
+  background: none;
+  margin: 0;
+  padding: 0;
+  color: inherit;
+}
+img {
+  max-width: 100%;
+  max-height: 100%;
+  width: 100%;
+  height: auto;
+}
+textarea {
+  max-width: 100%;
+  width: 100%;
+  min-width: 100%;
+  min-height: 40px;
+}
+ul,
+ol,
+dl {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+dt,
+dd {
+  padding: 0;
+  margin: 0;
+}
+b,
+dt,
+h1,
+h2,
+h3,
+h4,
+h5,
+strong {
+  font-family: $bold;
+  font-weight: normal;
+}
+s {
+  text-decoration-color: var(--main-color);
+}
+html {
+  height: 100%;
+  font-size: $browser-context;
+}
+body {
+  height: 100%;
+  min-width: 320px;
+  font-family: $r;
+  color: var(--text-color);
+  background: var(--body-bg-color);
+}
+header {
+  flex: 0 0 auto;
+}
+main {
+  flex: 1 0 auto;
+}
+footer {
+  flex: 0 0 auto;
+}
