@@ -5,6 +5,12 @@ block variables
 
 block content
 	main.page
-		.container
-			.page__content
-				h1 Привкет
+		section.main-hero.container
+			//- picture 
+			//- 	source(media="(min-width: 1770px)" srcset="img/images-xxl.jpg 1200w" sizes="100vw 600vh")
+			//- 	img(src="img/images-xxl.jpg", alt="")
+			.main-hero__pic
+				img(src="img/images-xxl.jpg", alt="")
+			.main-hero__content
+				h1.main-hero__title Дом бизнес-класса<br> для ценителей роскоши
+				img.main-hero__logo(src="img/content-logo.svg", alt="")

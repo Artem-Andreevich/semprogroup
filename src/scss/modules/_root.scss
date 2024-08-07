@@ -37,7 +37,7 @@
 	--border-raduis-16: 16px;
 	--border-raduis-main: 2px;
 
-	--container: 1760px;
+	--container: calc( var(--container-padding) * 2 + 1760px );
 	--container-padding: 80px;
 	--page-gap: 40px;
 	--header-height: calc(var(--header-grid-height) + var(--header-padding) * 2);
@@ -48,24 +48,26 @@
 	--main-color-hover: #2466be;
 	--accent-color: #111;
 	--accent-color-hover: #323232;
-	--second-color: #e6e6e6;
+	--second-color: #D7D7D7;
 	--second-light-color: #f3f3f3;
 	--text-color: #000;
 	--body-bg-color: #fff;
 	--shadow: 8px 8px 15px 0px rgba(0,0,0,.1);
 }
 
-@media (max-width: 1769px) and (min-width: 1280px) {
+@include breakpoint(xxl) {
 	:root {
 		--fs-72-32: 3rem;
 		--fs-48-24: 2.25rem;
 		--fs-36-24: 2rem;
 		--fs-32-24: 1.875rem;
+		--header-grid-height: 43px;
 		--container-padding: 40px;
+		--header-padding: 30px;
+
 	}
 }
-		
-@media (max-width: 1279px) and (min-width: 1024px) {
+@include breakpoint(xl) {
 	:root {
 		--fs-72-32: 2.625rem;
 		--fs-36-24: 1.5rem;
@@ -76,8 +78,8 @@
 		--container-padding: 30px;
 	}
 }
-
-@media (max-width: 1023px) and (min-width: 767px) {
+		
+@include breakpoint(lg) {
 	:root {
 		--fs-72-32: 2.25rem;
 		--fs-48-24: 2rem;
@@ -92,10 +94,11 @@
 		--size-40-30: 30px;
 		--size-30-25: 25px;
 		--container-padding: 40px;
+		--header-padding: 40px;
 	}
 }
 
-@media (max-width: 766px) and (min-width: 0px) {
+@include breakpoint(md) {
 	:root {
 		--fs-72-32: 2rem;
 		--fs-72-24: 1.5rem;
@@ -109,11 +112,12 @@
 		--fs-16-sm-10: 0.625rem;
 		--fs-14-sm-10: 0.625rem;
 		--container-padding: 20px;
+		--header-grid-height: 41px;
+		--header-padding: 20px;
+
 	}
 }
-
-
-@media (max-width: 360px) and (min-width: 0px) {
+@include breakpoint(xs) {
 	:root {
 		--fs-48-xs-18: 1.125rem;
 		--fs-16-xs-12: 0.75rem;

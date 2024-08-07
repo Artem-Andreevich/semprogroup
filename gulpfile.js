@@ -4,8 +4,9 @@ const watch = require('gulp-watch');
 const sass = require('gulp-sass')(require('sass'));
 const autoprefixer = require('gulp-autoprefixer');
 const sourcemaps = require('gulp-sourcemaps');
-var cssmin = require('gulp-cssmin');
-var rename = require('gulp-rename');
+const cssmin = require('gulp-cssmin');
+const rename = require('gulp-rename');
+const gcmq = require('gulp-group-css-media-queries');
 const notify = require('gulp-notify');
 const plumber = require('gulp-plumber');
 const pug = require('gulp-pug');
@@ -37,6 +38,7 @@ gulp.task('pug', function(callback) {
 	callback();
 });
 
+
 // Таск для компиляции SCSS в CSS.
 gulp.task('scss', function(callback) {
 	return gulp.src('./src/scss/styles.scss')
@@ -51,12 +53,13 @@ gulp.task('scss', function(callback) {
 		}) )
 		.pipe( sourcemaps.init() )
 		.pipe( sass() )
+        .pipe( gcmq() )
 		.pipe( autoprefixer({
 			overrideBrowserslist: ['last 4 versions']
 		}) )
 		.pipe( sourcemaps.write() )
-		.pipe(cssmin())
-        .pipe(rename({suffix: '.min'}))
+		.pipe( cssmin())
+        .pipe( rename({suffix: '.min'}))
 		.pipe( gulp.dest('./build/css/') )
 		.pipe( browserSync.stream() )
 	/*

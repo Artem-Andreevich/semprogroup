@@ -23,6 +23,7 @@
   },
   "description": "",
   "devDependencies": {
-    "gulp-cssmin": "^0.2.0"
+    "gulp-cssmin": "^0.2.0",
+    "gulp-group-css-media-queries": "^1.2.2"
   }
 }

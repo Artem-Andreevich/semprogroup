@@ -1,8 +1,10 @@
+@import "_mixins.scss";
 @import "_fonts.scss";
 @import "_root.scss";
 @import "_variables.scss";
 @import "_keyframes.scss";
 @import "_reset.scss";
+
 
 .wrapper {
 	position: relative;
@@ -42,6 +44,105 @@
 }
 
 
+.btn {
+	&-main {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: fit-content;
+		height: 100%; 
+		max-height: 62px;
+		padding: 12px 26px;
+		font-size: 15px;
+		color: #fff;
+		font-family: $semibold;
+		line-height: 100%;
+		letter-spacing: 0.7px;
+		text-transform: uppercase;
+		white-space: nowrap;
+		border-radius: 100px;
+		background-color: var(--main-color);
+		@include breakpoint(xxl) {
+			font-size: 13px;
+			padding: 12px 20px;
+		}
+		@include breakpoint(xl) {
+			font-size: 12px;
+		} 
+		@include breakpoint(md) {
+			padding: 12px 18px;  
+		}
+	}
+	&-dropdown {
+		gap: 12px;
+		@include breakpoint(xxl) {
+			gap: 10px;
+		} 
+		&::after {
+			content: '';
+			display: block;
+			width: 14px;
+			height: 14px;
+			background: url(../img/chevron-down.svg) no-repeat;
+			background-position: center;
+			background-size: contain;
+		}
+	}
+}
+.burger-menu {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	width: fit-content;
+
+	&__icon {
+		display: flex;
+		flex-direction: column;
+		gap: 6px;
+		@include breakpoint(xxl) {
+			gap: 4px;
+		}
+
+		> span {
+			display: block;
+			width: 38px;
+			height: 2px;
+			background-color: var(--main-color);
+			@include breakpoint(xxl) {
+				width: 32px;
+			}
+			@include breakpoint(md) {
+				width: 29px;
+				background-color: #000;
+			}
+		}
+	}
+
+	&__text {
+		font-size: 15px;
+		font-family: $semibold;
+		line-height: 100%;
+		letter-spacing: 0.7px;
+		text-transform: uppercase;
+
+		@include breakpoint(xxl) {
+			font-size: 13px;
+		}
+		@include breakpoint(xl) {
+			font-size: 12px;
+		}
+		@include breakpoint(md) {
+			display: none;
+		}
+	}
+}
+.logo {
+	display: block;
+	width: fit-content;
+}
+
+
+
 .header {
 	position: fixed;
 	top: 0;
@@ -56,10 +157,98 @@
 
 	&__grid {
 		display: grid;
-		grid-template-columns: repeat(2, 1fr);
+		grid-template-columns: repeat(2, auto) 1fr repeat(2, auto);
+		grid-template-areas: "B D L P C";
+		gap: 45px;
 		align-items: center;
 		width: 100%;
 		height: var(--header-grid-height);
+		@include breakpoint(lg) {
+			grid-template-columns: repeat(2, auto) 1fr auto;
+			grid-template-areas: "B P L D";
+			gap: 62px;
+		}
+		@include breakpoint(md) {
+			grid-template-columns: auto 1fr auto;
+			grid-template-areas: "B L P";
+			gap: 20px;
+		}
+	}
+
+	&__burger {
+		grid-area: B;
+	}
+	&__dropdown {
+		grid-area: D;
+		@include breakpoint(md) {
+			display: none;
+		}
+	}
+	&__logo {
+		grid-area: L;
+		justify-self: center;
+		width: 187px;
+		height: 30px;
+		@include breakpoint(xxl) {
+			width: 156px;
+			height: 25px;
+		}
+		@include breakpoint(md) {
+			width: 131px;
+			height: 21px;
+		}
+	}
+	&__phone {
+		grid-area: P;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: fit-content;
+		font-size: 17px;
+		font-family: $semibold;
+		line-height: 100%;
+		> .phone-icon { display: none;}
+		@include breakpoint(xxl) {
+			font-size: 14px;
+		}
+		@include breakpoint(xl) {
+			font-size: 13px;
+		}
+		@include breakpoint(lg) {
+			height: 100%;
+			border-radius: 100%;
+			border: 1px solid;
+			border-color: var(--second-color);
+			aspect-ratio: 1;
+			> .phone-icon { display: block;}
+		}
+		@include breakpoint(md) {
+			border-color: var(--main-color);
+		}
+		> span {
+			@include breakpoint(lg) {
+				display: none; 
+			}
+		}
+	}
+	&__callback {
+		grid-area: C;
+		font-size: 15px;
+		color: var(--main-color);
+		font-family: $semibold;
+		line-height: 100%;
+		letter-spacing: 0.7px;
+		text-transform: uppercase;
+
+		@include breakpoint(xxl) { 
+			font-size: 13px;
+		}
+		@include breakpoint(xl) {
+			font-size: 12px;
+		}
+		@include breakpoint(lg) {
+			display: none;
+		}  
 	}
 }
 
@@ -71,7 +260,7 @@
 
 .page {
 
-	padding-top: calc( var(--header-height) + var(--page-gap));
+	padding-top: var(--header-height);
 
 	&__title {
 		font-size: var(--fs-48-24);
@@ -84,5 +273,34 @@
 	&__heading {
 		font-size: var(--fs-18-16);
 		font-family: $bold;
+	}
+}
+
+.main-hero {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	gap: 50px;
+	height: calc(100vh - var(--header-height));
+	padding-bottom: 60px;
+
+	&__pic {
+		flex: 0 1 auto;
+	}
+	&__content {
+		display: flex;
+		align-items: end;
+	}
+	&__title {
+		flex: 1 1 auto;
+		font-size: 31px;
+		color: var(--main-color);
+		font-family: $r;
+		line-height: 140%;
+		text-transform: uppercase;
+	}
+	&__logo {
+		flex: 0 1 862px;
+		// width: fit-content;
 	}
 }

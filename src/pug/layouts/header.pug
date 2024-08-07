@@ -2,5 +2,18 @@ include mixins.pug
 header.header
     .container
         .header__grid
-            p 123
-            p 123
+            button.header__burger.burger-menu
+                .burger-menu__icon 
+                    span
+                    span
+                    span
+                .burger-menu__text Меню
+            button.header__dropdown.btn-main.btn-dropdown 
+                span Выбрать квартиру
+            a.header__logo.logo(href="#")
+                img(src="img/logo.svg", alt="")
+            a.header__phone(href="tel:74955272121")
+                +svg('phone-icon', 14)(class='phone-icon')
+                span +7 495 527 2121
+            button.header__callback 
+                span Заказать звонок
