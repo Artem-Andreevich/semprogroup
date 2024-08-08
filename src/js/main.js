@@ -136,4 +136,43 @@ window.addEventListener('load', function(){
 
 
 
+
+
+	/* Catalog button HOVER ANIMATION */
+	const hoverAnime = anime.timeline({
+		autoplay: false,
+	})
+
+	const hoverBtn = document.querySelector('.hover-anim')
+	const hoverBtnAnim = hoverBtn.querySelector('span')
+
+	if(hoverBtn) {
+		hoverAnime
+		.add({
+			targets: hoverBtnAnim,
+			easing: 'easeInOutExpo',
+			translateY: [0, -25],
+			duration: 900,
+		}, "-=300")
+	
+		hoverBtn.addEventListener("mouseenter", () => { 
+			if (hoverAnime.direction === "reverse") {
+				hoverAnime.reverse()
+				hoverAnime.restart()
+			}
+			hoverAnime.play();
+		})
+		
+		hoverBtn.addEventListener("mouseleave", () => {
+		
+			hoverAnime.reverse();
+			if ( hoverAnime.progress === 100 ) { hoverAnime.play(); }
+		
+		})
+	}
+	/* END Catalog button HOVER ANIMATION */
+
+
+
+
 })

@@ -892,6 +892,10 @@ footer {
   }
 }
 
+.hover-anim > span {
+  display: block;
+}
+
 .footer {
   margin-top: var(--page-gap);
   padding: 40px 0;
