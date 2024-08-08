@@ -5,12 +5,16 @@ block variables
 
 block content
 	main.page
-		section.main-hero.container
-			//- picture 
-			//- 	source(media="(min-width: 1770px)" srcset="img/images-xxl.jpg 1200w" sizes="100vw 600vh")
-			//- 	img(src="img/images-xxl.jpg", alt="")
-			.main-hero__pic
-				img(src="img/images-xxl.jpg", alt="")
+		section.section.main-hero.container
+			picture.main-hero__pic
+				source(media="(max-width: 1769px)" srcset="img/hero-img-xl.webp")
+				source(media="(max-width: 1279px)" srcset="img/hero-img-lg.webp")
+				source(media="(max-width: 1023px)" srcset="img/hero-img-lg.webp")
+				source(media="(max-width: 766px)" srcset="img/hero-img-xs.webp")
+				img(src="img/hero-img-xxl.webp", alt="")
 			.main-hero__content
 				h1.main-hero__title Дом бизнес-класса<br> для ценителей роскоши
-				img.main-hero__logo(src="img/content-logo.svg", alt="")
+				.main-hero__logo
+					img(src="img/content-logo.svg", alt="")
+
+		section.section.about-project.container

@@ -123,7 +123,7 @@ window.addEventListener('load', function(){
 
         function handleFormSubmit(event) {
             event.preventDefault()
-            serializeForm(applicantForm)
+            serializeForm(form)
             event.target.reset()
         }
 
