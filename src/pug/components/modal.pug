@@ -1,0 +1,21 @@
+include ../layouts/mixins.pug
+.callback-modal.js-callback-modal
+    button.callback-modal__close.js-modal-close
+        +svg('close-icon', 28)(class='close-icon')
+    .callback-modal__content 
+        .callback-modal__title Заказать звонок
+        form.callback-modal__form.form.callback-form(action="/apply/" method="POST")
+            .form__field
+                input.form__input#callback-form-name(type="text" placeholder="Ваше имя" name="callback-form-name")
+                label Ваше имя
+            .form__field
+                input.form__input.js-phone-mask#callback-form-phone(type="text" placeholder="Телефон" name="callback-form-phone" required)
+                label Телефон
+            .form__field
+                input.form__input#callback-form-3mail(type="email" placeholder="E-Mail" name="callback-form-email" required)
+                label E-Mail
+            .form__submit 
+                p.form__submit-police 
+                    span Нажимая на кнопку «Отправить», вы ознакомлены и соглашаетесь с&nbsp;
+                    a(href="#") политикой обработки персональных данных
+                button.form__submit-button.btn-main Отправить
