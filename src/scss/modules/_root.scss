@@ -1,6 +1,5 @@
 :root {
-	scroll-behavior: inherit;
-	
+
 	--fs-72-32: 4.5rem;
 	--fs-72-24: var(--fs-72-32);
 	--fs-48-24: 3rem;
@@ -44,6 +43,7 @@
 	--header-grid-height: 51px;
 	--header-padding: 40px;
 	--about-figure-icon-size: 260px;
+	--video-preview-size: 241px;
 
 	--main-color: #2F80ED;
 	--main-color-hover: #2466be;
@@ -53,7 +53,7 @@
 	--second-light-color: #f3f3f3;
 	--text-color: #000;
 	--body-bg-color: #fff;
-	--shadow: 8px 8px 15px 0px rgba(0,0,0,.1);
+	--header-fixed-shadow: 8px 8px 15px 0px rgba(0,0,0,.1);
 }
 
 @include breakpoint(xxl) {

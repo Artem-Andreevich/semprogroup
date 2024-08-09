@@ -1,10 +1,23 @@
 window.addEventListener('load', function(){
+    
+
 
     // GLOBAL ENV //
 	const body = document.querySelector('body')
 	const header = document.querySelector('header')
     const headerFixedRange = 50
+    
 
+
+    // // INIT SMOOTH-SCROLLBAR //
+    // const Scrollbar = window.Scrollbar
+    // const scrollbarEl = document.querySelector('body')
+    // const scrollbar = Scrollbar.init(scrollbarEl, {
+    //     damping: 0.2,
+    //   });
+    // Scrollbar.initAll()
+    // scrollbar.init(window.body)
+    // console.log(scrollbarEl)
 
 
 
