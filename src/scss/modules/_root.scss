@@ -43,6 +43,7 @@
 	--header-height: calc(var(--header-grid-height) + var(--header-padding) * 2);
 	--header-grid-height: 51px;
 	--header-padding: 40px;
+	--about-figure-icon-size: 260px;
 
 	--main-color: #2F80ED;
 	--main-color-hover: #2466be;
@@ -64,6 +65,8 @@
 		--header-grid-height: 43px;
 		--container-padding: 40px;
 		--header-padding: 30px;
+		--about-figure-icon-size: 200px;
+
 
 	}
 }
@@ -76,6 +79,8 @@
 		--fs-16-14: 0.875rem;
 		--fs-14-12: 0.75rem;	
 		--container-padding: 30px;
+		--about-figure-icon-size: 148px;
+
 	}
 }
 		
@@ -95,6 +100,8 @@
 		--size-30-25: 25px;
 		--container-padding: 40px;
 		--header-padding: 40px;
+		--about-figure-icon-size: 81px;
+
 	}
 }
 
@@ -114,7 +121,7 @@
 		--container-padding: 20px;
 		--header-grid-height: 41px;
 		--header-padding: 20px;
-
+		--about-figure-icon-size: 87px;
 	}
 }
 @include breakpoint(xs) {

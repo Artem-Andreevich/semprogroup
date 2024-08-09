@@ -141,7 +141,37 @@
 
 }
 .hover-anim {
-	> span { display: block;} 
+
+	overflow: hidden;
+
+	> .text-animation {
+		overflow: hidden;
+		height: 2lh;
+		> span { 
+			display: block;
+			transition: $trans;
+			&:first-child {
+				transform: translate3d(0, 50%, 0);
+			}
+			&:last-child {
+				transform: translate3d(0, 100%, 0);
+			}
+		} 
+	}
+
+	@media ( hover : hover ) {
+		&:hover > span {
+			span {
+				&:first-child {
+					transform: translate3d(0, -100%, 0);
+				}
+				&:last-child {
+					transform: translate3d(0, -50%, 0);
+				}
+				
+			}
+		}
+	}
 }
 
 
@@ -384,6 +414,7 @@
 	padding-bottom: var(--header-padding);
 	background: #fff;
 	z-index: 10;
+	transition: $trans;
 
 	&.open-menu { right: 16px !important;}
 
@@ -488,6 +519,10 @@
 			display: none;
 		}  
 	}
+	&.is-fixed {
+		--header-padding: 20px;
+		--header-height: calc(var(--header-grid-height) + var(--header-padding) * 2);
+	}
 }
 
 .footer {
@@ -533,6 +568,8 @@
 	}
 	@include breakpoint(md) {
 		gap: 20px;
+		height: calc(100dvh - var(--header-height));
+
 	}
 
 	&__pic {
@@ -592,5 +629,87 @@
 			width: 100%;
 			height: 100%;
 		}
+	}
+}
+
+.about-project {
+
+	display: grid;
+	grid-template-columns: 733px 1fr;
+	gap: 290px;
+	margin-top: 160px;
+
+	&__pic {
+		position: relative;
+		display: flex;
+		flex-direction: column-reverse;
+		align-items: end;
+		gap: 35px;
+
+		&__caption {
+			font-size: 17px;
+			color: var(--main-color);
+			line-height: 140%;
+			text-transform: uppercase;
+		}
+
+		&::after {
+			content: '';
+			position: absolute;
+			top: 150px;
+			right: 0;
+			transform: translateX(50%);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: var(--about-figure-icon-size);
+			height: var(--about-figure-icon-size);
+			background: var(--main-color) url(../img/about-pic-icon.svg) no-repeat;
+			background-size: 63px 88px;
+			background-position: center;
+			border-radius: 100%;
+
+		}
+
+		@include breakpoint(xxl) { 
+			gap: 27px;
+			&::after { background-size: 43px 68px; }
+			&__caption { font-size: 13px; }
+		}
+		@include breakpoint(xl) { 
+			gap: 20px;
+			&::after { background-size: 35px 49px; }
+			&__caption { font-size: 11px; }
+		}
+		@include breakpoint(lg) { 
+			margin-left: calc( -1 * var(--container-padding) );
+			&::after { background-size: 20px 27px; }
+		}
+		@include breakpoint(md) { 
+			gap: 10px;
+			margin-right: calc( var(--about-figure-icon-size) / 2 );
+
+		}
+	}
+
+	@include breakpoint(xxl) { 
+		grid-template-columns: 567px 1fr;
+		gap: 226px;
+		margin-top: 110px;
+	}
+	@include breakpoint(xl) { 
+		grid-template-columns: 408px 1fr;
+		gap: 148px;
+		margin-top: 126px;
+	}
+	@include breakpoint(lg) { 
+		grid-template-columns: 290px 1fr;
+		gap: 94px;
+		margin-top: 90px;
+	}
+	@include breakpoint(md) { 
+		grid-template-columns: 1fr;
+		gap: 56px;
+		margin-top: 55px;
 	}
 }

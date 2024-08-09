@@ -3,6 +3,7 @@ window.addEventListener('load', function(){
     // GLOBAL ENV //
 	const body = document.querySelector('body')
 	const header = document.querySelector('header')
+    const headerFixedRange = 50
 
 
 
@@ -138,39 +139,37 @@ window.addEventListener('load', function(){
 
 
 
-	/* Catalog button HOVER ANIMATION */
-	const hoverAnime = anime.timeline({
-		autoplay: false,
-	})
+    // TEXT HOVER ANIMATION //
+    function textHoverAnim(animSelector) {
+        const animNode = document.querySelectorAll(animSelector)
+        animNode.forEach( el => {
+            const innerSpan = el.querySelector('span').innerHTML
+            el.querySelector('span').remove()
+            el.insertAdjacentHTML('beforeend', `<span class="text-animation">
+                <span>${innerSpan}</span>
+                <span>${innerSpan}</span>
+            </span>`)
+        })
+    }
+    textHoverAnim('.hover-anim')
+    // END TEXT HOVER ANIMATION //
 
-	const hoverBtn = document.querySelector('.hover-anim')
-	const hoverBtnAnim = hoverBtn.querySelector('span')
 
-	if(hoverBtn) {
-		hoverAnime
-		.add({
-			targets: hoverBtnAnim,
-			easing: 'easeInOutExpo',
-			translateY: [0, -25],
-			duration: 900,
-		}, "-=300")
-	
-		hoverBtn.addEventListener("mouseenter", () => { 
-			if (hoverAnime.direction === "reverse") {
-				hoverAnime.reverse()
-				hoverAnime.restart()
-			}
-			hoverAnime.play();
-		})
-		
-		hoverBtn.addEventListener("mouseleave", () => {
-		
-			hoverAnime.reverse();
-			if ( hoverAnime.progress === 100 ) { hoverAnime.play(); }
-		
-		})
-	}
-	/* END Catalog button HOVER ANIMATION */
+
+
+
+
+    /* HEADER FIXED ON SCROLL */
+    function initHeaderFixed(header) {
+        let currentScroll = 0
+
+        window.addEventListener('scroll', () => {
+            currentScroll = window.scrollY
+            currentScroll > headerFixedRange ? header.classList.add('is-fixed') : header.classList.remove('is-fixed')
+        })
+    }
+    initHeaderFixed(header)
+	/* END HEADER FIXED ON SCROLL */
 
 
 
