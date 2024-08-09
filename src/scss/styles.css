@@ -808,7 +808,7 @@ footer {
 }
 @media (max-width: 766px) and (min-width: 0px) {
   .header__grid {
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: auto 1fr 40px;
     grid-template-areas: "B L P";
     gap: 20px;
   }
@@ -951,6 +951,7 @@ footer {
   gap: 50px;
   height: calc(100vh - var(--header-height));
   padding-bottom: 20px;
+  transition: all 0.2s ease-out;
 }
 @media (max-width: 1769px) and (min-width: 0px) {
   .main-hero {
@@ -965,12 +966,17 @@ footer {
 @media (max-width: 1023px) and (min-width: 0px) {
   .main-hero {
     gap: 40px;
+    height: auto;
+  }
+}
+@media screen and (max-width: 1023px) and (min-width: 0px) and (orientation: portrait) {
+  .main-hero {
+    height: calc(100dvh - var(--header-height));
   }
 }
 @media (max-width: 766px) and (min-width: 0px) {
   .main-hero {
     gap: 20px;
-    height: calc(100dvh - var(--header-height));
   }
 }
 .main-hero__pic {
