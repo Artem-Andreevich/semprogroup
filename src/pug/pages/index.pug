@@ -31,12 +31,13 @@ block content
 				.about-project__video 
 					
 					.preview-video
-						.preview-video__title(data-duration='1:30 минут') Видео о проекте
+						.preview-video__title(data-duration='1:25 минут') Видео о проекте
 						.preview-video__button-wrap
 							img.preview-video__preview(src="img/video-prev.png", alt="")
-							button.preview-video__button.js-open-player Play
+							button.preview-video__button.js-open-player 
+								span Play
 						.preview-video__player.js-fs-player
 							button.preview-video__player__close.js-close-player
 								+svg('close-icon', 28)(class='close-icon')
 							.preview-video__inner-video 
-								video(controls="true" fullscreen="true" src="img/video.mp4") 
+								video(controls="true" src="img/video.mp4") 

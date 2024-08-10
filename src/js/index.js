@@ -9,15 +9,6 @@ window.addEventListener('load', function(){
     const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
 
 
-    // // INIT SMOOTH-SCROLLBAR //
-    // const Scrollbar = window.Scrollbar
-    // const scrollbarEl = document.querySelector('body')
-    // const scrollbar = Scrollbar.init(scrollbarEl, {
-    //     damping: 0.2,
-    //   });
-    // Scrollbar.initAll()
-    // scrollbar.init(window.body)
-    // console.log(scrollbarEl)
 
 
 
@@ -122,6 +113,8 @@ window.addEventListener('load', function(){
     // CONSOLE LOG FORM DATA //
     function formData(formSelector){
         const form = document.querySelector(formSelector)
+        const successForm = form.querySelector('.form__success')
+
 
         function serializeForm(formNode) {
             const { elements } = formNode
@@ -138,6 +131,10 @@ window.addEventListener('load', function(){
             event.preventDefault()
             serializeForm(form)
             event.target.reset()
+            successForm.classList.add('show')
+            setTimeout( () => {
+                successForm.classList.remove('show')
+            }, 1000)
         }
 
         form.addEventListener('submit', handleFormSubmit)
@@ -221,10 +218,8 @@ window.addEventListener('load', function(){
                 video.play()
             }
         });
-
     }
     initFullscreenPlayer('.js-open-player', '.js-fs-player')
 	/* END FULL SCREEN PLAYER */
-
-
+      
 })
