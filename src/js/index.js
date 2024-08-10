@@ -120,7 +120,7 @@ window.addEventListener('load', function(){
 
 
     // CONSOLE LOG FORM DATA //
-    function logFormData(formSelector){
+    function formData(formSelector){
         const form = document.querySelector(formSelector)
 
         function serializeForm(formNode) {
@@ -143,7 +143,7 @@ window.addEventListener('load', function(){
         form.addEventListener('submit', handleFormSubmit)
     }
 
-    logFormData('.callback-form')
+    formData('.callback-form')
     // END CONSOLE LOG FORM DATA //
 
 
@@ -164,7 +164,7 @@ window.addEventListener('load', function(){
         })
     }
 
-    textHoverAnim('.hover-anim')
+    !isMobile && textHoverAnim('.hover-anim')
     // END TEXT HOVER ANIMATION //
 
 
