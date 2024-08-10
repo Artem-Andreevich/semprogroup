@@ -90,12 +90,19 @@
             <p class="about-project__descr"><span>Квартиры от 65 до 356 м2 с чистовой отделкой, </span>балконами, лоджиями и террасами В собственной ЗАКРЫТОЙ охраняемой территории.</p>
             <div class="about-project__video"> 
               <div class="preview-video">
-                <div class="preview-video__button-wrap"><img src="img/video-prev.png" alt=""/>
-                  <button>Play</button>
+                <div class="preview-video__title" data-duration="1:25 минут">Видео о проекте</div>
+                <div class="preview-video__button-wrap"><img class="preview-video__preview" src="img/video-prev.png" alt=""/>
+                  <button class="preview-video__button js-open-player">Play</button>
                 </div>
-                <div class="preview-video__player"> 
-                  <button>close </button>
-                  <div class="preview-video__video"> </div>
+                <div class="preview-video__player js-fs-player">
+                  <button class="preview-video__player__close js-close-player">
+                          <svg class="close-icon" width="28px" height="28px">
+                            <use xlink:href="#close-icon"></use>
+                          </svg>
+                  </button>
+                  <div class="preview-video__inner-video"> 
+                    <video controls="true" fullscreen="true" src="img/video.mp4"> </video>
+                  </div>
                 </div>
               </div>
             </div>

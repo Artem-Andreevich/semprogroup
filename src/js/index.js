@@ -71,7 +71,6 @@ window.addEventListener('load', function(){
 
     // PHONE MASK //
     function initPhoneMask(inputSelector){
-
         document.querySelectorAll(inputSelector).forEach( input =>  {
             let keyCode;
             function mask(event) {
@@ -164,6 +163,7 @@ window.addEventListener('load', function(){
             </span>`)
         })
     }
+
     textHoverAnim('.hover-anim')
     // END TEXT HOVER ANIMATION //
 
@@ -185,6 +185,45 @@ window.addEventListener('load', function(){
 	/* END HEADER FIXED ON SCROLL */
 
 
+
+
+
+
+	/* FULL SCREEN PLAYER */
+    function initFullscreenPlayer(button, player) {
+
+        const openPlayerButton = document.querySelector(button)
+        const playerFS = document.querySelector(player)
+        const video = playerFS.querySelector('video')
+        const closePlayerButton = playerFS.querySelector('.js-close-player')
+
+        function exitFullscreen() {
+            document.exitFullscreen()
+        }
+
+        function fullscreenchanged() {
+            if (document.fullscreenElement) {
+                closePlayerButton.addEventListener('click', exitFullscreen)
+            } else {
+                video.pause()
+                video.currentTime = 0
+                closePlayerButton.removeEventListener('click', exitFullscreen)
+            }
+        }
+
+        playerFS.addEventListener("fullscreenchange", fullscreenchanged);
+
+        openPlayerButton.addEventListener("click", () => {
+            if (!document.fullscreenElement) {
+                playerFS.requestFullscreen()
+                    .then(() => video.play())
+                    .catch((err) => console.error(err))
+            } 
+        });
+
+    }
+    initFullscreenPlayer('.js-open-player', '.js-fs-player')
+	/* END FULL SCREEN PLAYER */
 
 
 })

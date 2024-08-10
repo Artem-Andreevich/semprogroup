@@ -66,6 +66,7 @@
 		--container-padding: 40px;
 		--header-padding: 30px;
 		--about-figure-icon-size: 200px;
+		--video-preview-size: 186px;
 
 
 	}
@@ -80,6 +81,7 @@
 		--fs-14-12: 0.75rem;	
 		--container-padding: 30px;
 		--about-figure-icon-size: 148px;
+		--video-preview-size: 133px;
 
 	}
 }
@@ -122,6 +124,8 @@
 		--header-grid-height: 41px;
 		--header-padding: 20px;
 		--about-figure-icon-size: 87px;
+		--video-preview-size: 131px;
+
 	}
 }
 @include breakpoint(xs) {
