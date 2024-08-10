@@ -10,17 +10,14 @@ window.addEventListener('load', function(){
 
 
 
-
-
 	// MODAL OPEN //
-    function initModal(modalSelector, modalOpenButtonSelector) {
-        if(!modalSelector && !modalOpenButtonSelector) return
+    function initModal(modalSelector, modalOpenButtonSelector, isOpenClass = 'is-open') {
         const modal = document.querySelector(modalSelector)
     	const openModalButton = document.querySelector(modalOpenButtonSelector)
         const closeModalButton = modal?.querySelector('.js-modal-close')
-        const isOpenClass = 'is-open'
+        if(!modal || !openModalButton || !closeModalButton) return
 
-        openModalButton?.addEventListener('click', openModalHandler )
+        openModalButton.addEventListener('click', openModalHandler )
 
         function openModalHandler(){
             openModalAction()
@@ -113,8 +110,8 @@ window.addEventListener('load', function(){
     // CONSOLE LOG FORM DATA //
     function formData(formSelector){
         const form = document.querySelector(formSelector)
-        const successForm = form.querySelector('.form__success')
-
+        const successForm = form?.querySelector('.form__success')
+        if(!form) return
 
         function serializeForm(formNode) {
             const { elements } = formNode
@@ -131,12 +128,11 @@ window.addEventListener('load', function(){
             event.preventDefault()
             serializeForm(form)
             event.target.reset()
-            successForm.classList.add('show')
+            successForm?.classList.add('show')
             setTimeout( () => {
-                successForm.classList.remove('show')
+                successForm?.classList.remove('show')
             }, 1000)
         }
-
         form.addEventListener('submit', handleFormSubmit)
     }
 
@@ -151,7 +147,7 @@ window.addEventListener('load', function(){
     // TEXT HOVER ANIMATION //
     function textHoverAnim(animSelector) {
         const animNode = document.querySelectorAll(animSelector)
-        animNode.forEach( el => {
+        animNode?.forEach( el => {
             const innerSpan = el.querySelector('span').innerHTML
             el.querySelector('span').remove()
             el.insertAdjacentHTML('beforeend', `<span class="text-animation">
@@ -160,7 +156,6 @@ window.addEventListener('load', function(){
             </span>`)
         })
     }
-
     !isMobile && textHoverAnim('.hover-anim')
     // END TEXT HOVER ANIMATION //
 
@@ -171,6 +166,7 @@ window.addEventListener('load', function(){
 
     /* HEADER FIXED ON SCROLL */
     function initHeaderFixed(header) {
+        if(!header) return
         let currentScroll = 0
 
         window.addEventListener('scroll', () => {
@@ -187,11 +183,11 @@ window.addEventListener('load', function(){
 
 	/* FULL SCREEN PLAYER */
     function initFullscreenPlayer(button, player) {
-
         const openPlayerButton = document.querySelector(button)
         const playerFS = document.querySelector(player)
-        const video = playerFS.querySelector('video')
-        const closePlayerButton = playerFS.querySelector('.js-close-player')
+        const video = playerFS?.querySelector('video')
+        const closePlayerButton = playerFS?.querySelector('.js-close-player')
+        if(!openPlayerButton || !playerFS || !video || !closePlayerButton) return
 
         function exitFullscreen() {
             document.exitFullscreen()
@@ -211,7 +207,7 @@ window.addEventListener('load', function(){
 
         openPlayerButton.addEventListener("click", () => {
             if (!document.fullscreenElement && !isMobile) {
-                playerFS.requestFullscreen()
+                playerFS?.requestFullscreen()
                     .then(() => video.play())
                     .catch((err) => console.error(err))
             } else {

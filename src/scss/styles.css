@@ -1112,32 +1112,6 @@ footer {
   padding-bottom: 20px;
   transition: all 0.2s ease-out;
 }
-@media (max-width: 1769px) and (min-width: 0px) {
-  .main-hero {
-    gap: 40px;
-  }
-}
-@media (max-width: 1279px) and (min-width: 0px) {
-  .main-hero {
-    gap: 30px;
-  }
-}
-@media (max-width: 1023px) and (min-width: 0px) {
-  .main-hero {
-    gap: 40px;
-    height: auto;
-  }
-}
-@media screen and (max-width: 1023px) and (min-width: 0px) and (orientation: portrait) {
-  .main-hero {
-    height: calc(100dvh - var(--header-height));
-  }
-}
-@media (max-width: 766px) and (min-width: 0px) {
-  .main-hero {
-    gap: 20px;
-  }
-}
 .main-hero__pic {
   flex: 1 1 auto;
 }
@@ -1212,6 +1186,32 @@ footer {
 .main-hero__logo > img {
   width: 100%;
   height: 100%;
+}
+@media (max-width: 1769px) and (min-width: 0px) {
+  .main-hero {
+    gap: 40px;
+  }
+}
+@media (max-width: 1279px) and (min-width: 0px) {
+  .main-hero {
+    gap: 30px;
+  }
+}
+@media (max-width: 1023px) and (min-width: 0px) {
+  .main-hero {
+    gap: 40px;
+    height: auto;
+  }
+}
+@media screen and (max-width: 1023px) and (min-width: 0px) and (orientation: portrait) {
+  .main-hero {
+    height: calc(100dvh - var(--header-height));
+  }
+}
+@media (max-width: 766px) and (min-width: 0px) {
+  .main-hero {
+    gap: 20px;
+  }
 }
 
 .about-project {

@@ -190,7 +190,6 @@
 }
 
 
-
 .btn {
 	&-main {
 		display: flex;
@@ -272,7 +271,6 @@
 			}
 		}
 	}
-
 	&__text {
 		font-size: 15px;
 		font-family: $semibold;
@@ -444,7 +442,6 @@
 		height: 1px;
 		background-color: #D7D7D7;
 	}
-
 	&__title {
 		position: relative;
 		flex: 1 0 auto;
@@ -616,7 +613,6 @@
 }
 
 
-
 .header {
 	position: fixed;
 	top: 0;
@@ -774,23 +770,6 @@
 	padding-bottom: 20px;
 	transition: $trans;
 
-	@include breakpoint(xxl) {
-		gap: 40px;
-	}
-	@include breakpoint(xl) {
-		gap: 30px;
-	}
-	@include breakpoint(lg) {
-		gap: 40px;
-		height: auto;
-		@media screen and (orientation:portrait) {
-			height: calc(100dvh - var(--header-height));
-		}
-	}
-	@include breakpoint(md) {
-		gap: 20px;
-	}
-
 	&__pic {
 		flex: 1 1 auto;
 		img {
@@ -848,6 +827,23 @@
 			width: 100%;
 			height: 100%;
 		}
+	}
+
+	@include breakpoint(xxl) {
+		gap: 40px;
+	}
+	@include breakpoint(xl) {
+		gap: 30px;
+	}
+	@include breakpoint(lg) {
+		gap: 40px;
+		height: auto;
+		@media screen and (orientation:portrait) {
+			height: calc(100dvh - var(--header-height));
+		}
+	}
+	@include breakpoint(md) {
+		gap: 20px;
 	}
 }
 .about-project {

@@ -93,7 +93,7 @@ gulp.task('copy:js', function(callback) {
 
 // Копирование Значков сайта (favicons).
 gulp.task('copy:favicon', function(callback) {
-	return gulp.src('./src/*.ico')
+	return gulp.src('./src/*.svg')
 		.pipe(gulp.dest('./build/'));
 	callback();
 });
