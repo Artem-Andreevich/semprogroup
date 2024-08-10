@@ -6,7 +6,7 @@ window.addEventListener('load', function(){
 	const body = document.querySelector('body')
 	const header = document.querySelector('header')
     const headerFixedRange = 50
-    
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
 
 
     // // INIT SMOOTH-SCROLLBAR //
@@ -188,7 +188,6 @@ window.addEventListener('load', function(){
 
 
 
-
 	/* FULL SCREEN PLAYER */
     function initFullscreenPlayer(button, player) {
 
@@ -211,14 +210,16 @@ window.addEventListener('load', function(){
             }
         }
 
-        playerFS.addEventListener("fullscreenchange", fullscreenchanged);
+        !isMobile && playerFS.addEventListener("fullscreenchange", fullscreenchanged);
 
         openPlayerButton.addEventListener("click", () => {
-            if (!document.fullscreenElement) {
+            if (!document.fullscreenElement && !isMobile) {
                 playerFS.requestFullscreen()
                     .then(() => video.play())
                     .catch((err) => console.error(err))
-            } 
+            } else {
+                video.play()
+            }
         });
 
     }
