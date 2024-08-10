@@ -1161,7 +1161,7 @@ footer {
 }
 @media screen and (max-width: 1023px) and (min-width: 0px) and (orientation: portrait) {
   .main-hero {
-    height: calc(100dvh - var(--header-height));
+    height: calc(100lvh - var(--header-height));
   }
 }
 @media (max-width: 766px) and (min-width: 0px) {

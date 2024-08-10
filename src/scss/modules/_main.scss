@@ -742,7 +742,7 @@
 		gap: 40px;
 		height: auto;
 		@media screen and (orientation:portrait) {
-			height: calc(100dvh - var(--header-height));
+			height: calc(100lvh - var(--header-height));
 		}
 	}
 	@include breakpoint(md) {
